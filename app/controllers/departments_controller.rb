@@ -4,7 +4,7 @@ class DepartmentsController < ApplicationController # rubocop:disable Style/Docu
   before_action :set_department, except: %i[index new create]
 
   def index
-    @department = Department.all
+    @departments = Department.all
   end
 
   def new
