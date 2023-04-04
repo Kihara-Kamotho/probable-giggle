@@ -18,6 +18,7 @@ class DepartmentsController < ApplicationController # rubocop:disable Style/Docu
       if @department.save
         flash[:notice] = 'Department was successfully created.'
         format.html { redirect_to department_path(@department) }
+        format.turbo_stream
       else
         flashp[:alert] = 'Error creating department.'
         render :new
@@ -34,6 +35,7 @@ class DepartmentsController < ApplicationController # rubocop:disable Style/Docu
       if @department.update(department_params)
         flash[:notice] = 'Department has been updated.'
         format.html { redirect_to department_path(@department) }
+        format.turbo_stream
       else
         flash[:alert] = 'Error updating department.'
         render :edit
@@ -46,6 +48,7 @@ class DepartmentsController < ApplicationController # rubocop:disable Style/Docu
       if @department.delete
         flash[:notice] = 'Department has been deleted.'
         format.html { redirect_to departments_path }
+        format.turbo_stream
       end
     end
   end

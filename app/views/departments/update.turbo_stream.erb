@@ -1,0 +1,5 @@
+<%= turbo_stream.update @department do %>
+  <%= render partial: 'departments/updated_department', locals: { department: @department } %>
+<% end %>
+
+<%= turbo_stream.update 'flash', partial: 'layouts/flash' %>
