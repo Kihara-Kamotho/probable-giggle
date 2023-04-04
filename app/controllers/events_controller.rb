@@ -21,6 +21,7 @@ class EventsController < ApplicationController # rubocop:disable Style/Documenta
         # on the notification, add a link to register
         flash[:notice] = 'Event was successfully created.'
         format.html { redirect_to event_path(@event) }
+        format.turbo_stream
       else
         flash[:alert] = 'Error creating event.'
         render :new
@@ -37,6 +38,7 @@ class EventsController < ApplicationController # rubocop:disable Style/Documenta
       if @event.update(event_params)
         flash[:notice] = 'Event was successfully updated.'
         format.html { redirect_to event_path(@event) }
+        format.turbo_stream
       else
         flash[:alert] = 'Error updating event.'
         render :edit
@@ -48,6 +50,7 @@ class EventsController < ApplicationController # rubocop:disable Style/Documenta
     respond_to do |format|
       flash[:notice] = 'Event was successfully deleted.'
       format.html { redirect_to department_path(@department) }
+      format.turbo_stream
     end
   end
 

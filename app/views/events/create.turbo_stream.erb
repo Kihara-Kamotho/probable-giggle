@@ -1,0 +1,5 @@
+<%= turbo_stream.append 'events' do %>
+  <%= render partial: 'events/created_event', locals: { event: @event } %>
+<% end %>
+
+<%= turbo_stream.update 'flash', partial: 'layouts/flash' %>
