@@ -11,7 +11,10 @@
 
 <div>
   <%# new event %>
-  <%= link_to 'new event', new_department_event_path(@department) %>
+  <%= turbo_frame_tag Event.new %>
+
+  <%= link_to 'new event', new_department_event_path(@department), data: { turbo_frame: dom_id(Event.new) } %>
+
   <%# render events %>
   <% if department.events.any? %>
     <h2>Department Events</h2>

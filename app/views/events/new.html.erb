@@ -1,4 +1,6 @@
 <div>
-  <h1>New event</h1>
-  <%= render 'form', department: @department, event: @event %>
+  <%= turbo_frame_tag @event do %>
+    <h1>New event</h1>
+    <%= render 'form', department: @department, event: @event %>
+  <% end %>
 </div>

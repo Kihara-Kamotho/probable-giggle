@@ -2,4 +2,6 @@
   <%= render partial: 'events/created_event', locals: { event: @event } %>
 <% end %>
 
+<%= turbo_stream.update Event.new, ' ' %>
+
 <%= turbo_stream.update 'flash', partial: 'layouts/flash' %>
