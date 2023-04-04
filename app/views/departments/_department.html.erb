@@ -8,3 +8,18 @@
   <p><%= department.mission %></p>
   
 </div>
+
+<div>
+  <%# new event %>
+  <%= link_to 'new event', new_department_event_path(@department) %>
+  <%# render events %>
+  <% if department.events.any? %>
+    <h2>Department Events</h2>
+    <div><%= pluralize department.events.count, department.name+' Event' %></div>
+
+    <% department.events.each do |event| %>
+      <%= link_to event.name, event %>
+      <%= event.date.strftime('%d-%b-%y')%>
+    <% end %>
+  <% end %>
+</div>

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :departments
+  resources :departments, shallow: true do
+    resources :events
+  end
+
   root 'departments#index'
 end

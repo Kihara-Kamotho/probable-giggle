@@ -1,7 +1,7 @@
 <div>
   <% @departments.each do |dept| %>
     <div>
-      <strong><%= dept.name %></strong>
+      <strong><%= link_to dept.name, dept %></strong>
     </div>
     <div>
       <%= dept.motto %>
