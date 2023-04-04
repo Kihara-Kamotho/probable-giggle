@@ -17,8 +17,9 @@ class EventsController < ApplicationController # rubocop:disable Style/Documenta
 
     respond_to do |format|
       if @event.save
-        # add notification to notify all dept members of the event
-        # on the notification, add a link to register
+        # Schedule the event reminder job
+        EventReminderJob.set(wait_until: @event.date - 1.day).perform_later(@event)
+
         flash[:notice] = 'Event was successfully created.'
         format.html { redirect_to event_path(@event) }
         format.turbo_stream
