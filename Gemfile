@@ -79,3 +79,5 @@ gem 'devise'
 gem 'rolify'
 
 gem "noticed", "~> 1.6"
+
+gem 'faraday'

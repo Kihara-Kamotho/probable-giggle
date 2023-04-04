@@ -6,10 +6,10 @@
 class EventReminderNotification < Noticed::Base
   # Add your delivery methods
   #
-  # deliver_by :database
+  deliver_by :database
   # deliver_by :email, mailer: "UserMailer"
   # deliver_by :slack
-  # deliver_by :custom, class: "MyDeliveryMethod"
+  deliver_by :custom, class: 'DeliveryMethods::AfricasTalking'
 
   # Add required params
   #
@@ -17,9 +17,10 @@ class EventReminderNotification < Noticed::Base
 
   # Define helper methods to make rendering easier.
   #
-  # def message
-  #   t(".message")
-  # end
+  def message
+    # t(".message")
+    "Event #{event} due in 1 day. Please prepare yourself accordingly. Thanks!"
+  end
   #
   # def url
   #   post_path(params[:post])
