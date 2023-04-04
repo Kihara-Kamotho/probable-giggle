@@ -1,3 +1,6 @@
 <div>
-  <%= render 'form', department: @department %>
+  <%= turbo_frame_tag @department do %>
+    <h1>New Department</h1>
+    <%= render 'form', department: @department %>
+  <% end %>
 </div>

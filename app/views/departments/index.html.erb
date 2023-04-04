@@ -1,7 +1,7 @@
 <div>
   <% @departments.each do |dept| %>
     <div>
-      <%= dept.name %>
+      <strong><%= dept.name %></strong>
     </div>
     <div>
       <%= dept.motto %>
@@ -10,4 +10,11 @@
       <%= dept.mission %>
     </div>
   <% end %>
+</div>
+
+<%# new dpt link %>
+<%= turbo_frame_tag Department.new %>
+
+<div>
+  <%= link_to 'new dpt', new_department_path, data: { turbo_frame: dom_id(Department.new) } %>
 </div>
