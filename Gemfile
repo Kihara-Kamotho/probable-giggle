@@ -81,3 +81,5 @@ gem 'rolify'
 gem "noticed", "~> 1.6"
 
 gem 'faraday'
+
+gem "tailwindcss-rails", "~> 2.0"
