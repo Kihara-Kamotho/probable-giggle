@@ -1,30 +1,31 @@
-<div id="<%=dom_id department%>">
-  <h3 class="text-lg font-bold mb-4">department</h3>
+<div class="max-w-5xl mx-auto sm:px-6 lg:px-8 py-8">
 
-  <p><%= department.name %></p>
+  <div id="<%=dom_id department%>" class="my-4 px-4">
+    <h2 class="text-2xl font-bold flex justify-center mb-4"><%= department.name %> Department</h2>
 
-  <p><%= department.motto %></p>
+    <p><%= department.motto %></p>
 
-  <p><%= department.mission %></p>
-  
-</div>
+    <p><%= department.mission %></p>
+  </div>
 
-<div>
-  <%# new event %>
-  <%= turbo_frame_tag Event.new %>
+  <div class="my-4 px-4">
+    <%# new event %>
+    <%= turbo_frame_tag Event.new %>
 
-  <%= link_to 'new event', new_department_event_path(@department), data: { turbo_frame: dom_id(Event.new) } %>
+    <%= link_to 'new event', new_department_event_path(@department), data: { turbo_frame: dom_id(Event.new) }, class: "my-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700" %>
 
-  <%# render events %>
-  <% if department.events.any? %>
-    <h2>Department Events</h2>
-    <div><%= pluralize department.events.count, department.name+' Event' %></div>
+    <%# render events %>
+    <% if department.events.any? %>
+      <h3 class="text-xl font-bold my-4"><%= department.name %> Events</h3>
+      <div><%= pluralize department.events.count, department.name+' Event' %></div>
 
-    <div id='events'>
-      <% department.events.each do |event| %>
-        <%= link_to event.name, event %>
-        <%= event.date.strftime('%d-%b-%y')%>
-      <% end %>
-    </div>
-  <% end %>
+      <div id='events' class="my-4">
+        <% department.events.each do |event| %>
+          <%= link_to event.name, event, class: "underline text-blue-500 hover:text-blue-700" %>
+          <%= event.date.strftime('%d-%b-%y')%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
