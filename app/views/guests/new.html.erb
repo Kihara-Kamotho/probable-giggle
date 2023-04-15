@@ -1,0 +1,6 @@
+<div>
+  <%= turbo_frame_tag @guest do %>
+    <h2>New Guest</h2>
+    <%= render 'form', guest: @guest %>
+  <% end %>
+</div>

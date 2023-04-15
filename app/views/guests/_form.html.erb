@@ -1,0 +1,23 @@
+<div>
+  <%= form_with(model: [@event, Guest.new]) do |form| %>
+    <% if guest.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+        <ul>
+          <% guest.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-5">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <%= form.submit 'Save', class: "my-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700" %>
+    <%= link_to 'cancel', event_path(@event) %>
+  <% end %>
+</div>
